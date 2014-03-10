@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">TheHunt</string>
+    <string name="title">THE HUNT</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+
+</resources>
