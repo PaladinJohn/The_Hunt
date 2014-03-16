@@ -1,5 +1,3 @@
-package com.example.thehunt;
-
 import android.content.Intent;
 import android.net.Uri;
 
@@ -14,6 +12,7 @@ import com.temboo.Library.Google.OAuth.InitializeOAuth.*;
 import com.temboo.Library.Google.OAuth.FinalizeOAuth.*;
 import com.temboo.core.TembooException;
 import com.temboo.core.TembooSession;
+import com.cloudmine.api.CMApiCredentials;
 
 // Johanna Oberto
 // Android Project
@@ -39,10 +38,10 @@ public class Authentication {
 	
 	
 	// CLOUDMINE
-	//public static void CMAuth()
-	//{
-	//	CMApiCredentials.initialize(CloudID, CloudKey, getApplicationContext());
-	//}
+	public static void CMAuth()
+	{
+		CMApiCredentials.initialize(CloudID, CloudKey, getApplicationContext());
+	}
 	
 	// FACEBOOK
 	public static String FacebookAuth(TembooSession session, String appID, String username, String tappKeyName, String facebookappKey, String facebookappSecret)
@@ -60,7 +59,7 @@ public class Authentication {
 			String authUrl = initializeOAuthResults.get_AuthorizationURL();
 			String fcallback = initializeOAuthResults.get_CallbackID();
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(authUrl));
-			//startActivity(browserIntent);
+			startActivity(browserIntent);
 			
 			FinalizeOAuth finalizeOAuthChoreo = new FinalizeOAuth(session);
 			FinalizeOAuthInputSet finalizeOAuthInputs = finalizeOAuthChoreo.newInputSet();
@@ -83,7 +82,7 @@ public class Authentication {
 		TembooSession session;
 		try {
 			session = new TembooSession(username, tappKeyName, appID);
-			//CMAuth();
+			CMAuth();
 		} catch (TembooException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
